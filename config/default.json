@@ -1,0 +1,12 @@
+{
+    "db": {
+        "client": "mysql",
+        "connection": {
+            "host": "localhost",
+            "user": "tiptax",
+            "password": "bananarama",
+            "database": "tiptax_development",
+            "charset": "utf8"
+        }
+    }
+}
