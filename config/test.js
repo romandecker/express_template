@@ -11,7 +11,7 @@ module.exports = {
     } ),
     db: {
         connection: {
-            database: "tiptax_development",
+            database: "tiptax_test"
         }
     }
 };

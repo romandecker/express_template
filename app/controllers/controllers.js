@@ -12,9 +12,9 @@ module.exports.setup = function( app ) {
 		return file.endsWith(".js") && file !== path.basename( __filename );
 	} ).forEach( function( file ) {
 
-		var model = require( "./" + file );
+		var controller = require( "./" + file );
 		var name = file.substring( 0, file.length - path.extname(file).length );
-		
-		module.exports[name] = model( app );
+
+		module.exports[name] = controller.setup( app );
 	} );
 };
