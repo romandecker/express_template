@@ -29,7 +29,6 @@ Dependencies
 TODO
 ----
 * Bootstrap, SASS
-* Livereload
 * Make this a yeoman generator
 
 The Gruntfile

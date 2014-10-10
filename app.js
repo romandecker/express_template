@@ -8,6 +8,7 @@
 var express = require( "express" );
 var config = require( "config" );
 var knex = require( "knex" )( config.get( "db" ) );
+var handlebars = require( "express-handlebars" );
 
 var routes = require( "./app/routes" );
 var models = require( "./app/models/models" );
@@ -26,13 +27,22 @@ app.set( "models", models );
 controllers.setup( app );
 app.set( "controllers", controllers );
 
+app.engine( "handlebars", handlebars( {
+	defaultLayout: "main",
+	layoutsDir: "app/views/layouts",
+	partialsDir: "app/views/partials"
+}) );
 app.set( "views", "app/views" );
-app.set( "view engine", "ejs" );
+app.set( "view engine", "handlebars" );
 
 routes.setup( app );
 
 app.locals.appinfo = {
-    environment: process.env.NODE_ENV
+    environment: {
+		development: process.env.NODE_ENV === "development",
+		production: process.env.NODE_ENV === "production",
+		test: process.env.NODE_ENV === "test"
+	}
 };
 
 var server = app.listen( 3000, function() {
