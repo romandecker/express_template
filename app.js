@@ -27,9 +27,13 @@ controllers.setup( app );
 app.set( "controllers", controllers );
 
 app.set( "views", "app/views" );
-app.set( "view engine", "jade" );
+app.set( "view engine", "ejs" );
 
 routes.setup( app );
+
+app.locals.appinfo = {
+    environment: process.env.NODE_ENV
+};
 
 var server = app.listen( 3000, function() {
     console.log( process.env.NODE_ENV );

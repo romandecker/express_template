@@ -9,7 +9,9 @@ module.exports.setup = function( app ) {
         index: function( req, res ) {
 
             User.fetchAll().then( function( users ) {
-                res.render( "users/index", { layout: "layouts/base" } );
+                res.render( "users/index", {
+                    layouts: 'layouts/base'
+                } );
             } ).catch( function(error) {
                 res.status( 500 ).json( error );
             } );

@@ -27,7 +27,12 @@ module.exports = function( grunt ) {
                         "app/controllers/*.js"],
 				tasks: ["lint", "express:development"],
 				options: { spawn: false }
-			}
+			},
+            public: {
+                files: ["app/public/**/*.css",
+                        "app/public/**/*.js"],
+                options: { livereload: true }
+            }
 		},
 		express: {
             /* 

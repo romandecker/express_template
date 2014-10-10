@@ -22,10 +22,15 @@ Out of the box, it supports the following features:
 * Migrations using knex
 * Tests using Mocha
 
+Dependencies
+------------
+
+
 TODO
 ----
 * Bootstrap, SASS
 * Livereload
+* Make this a yeoman generator
 
 The Gruntfile
 -------------
