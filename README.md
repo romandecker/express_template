@@ -28,6 +28,7 @@ Dependencies
 
 TODO
 ----
+* Rework the routes thing
 * Bootstrap, SASS
 * Make this a yeoman generator
 

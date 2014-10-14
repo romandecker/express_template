@@ -1,0 +1,26 @@
+{
+  "name": "express_template",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DeX3/express_template",
+  "authors": [
+    "Roman Decker <roman.decker@gmail.com>"
+  ],
+  "description": "Basic template for various express projects",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap-css": "~3.2.0"
+  }
+}

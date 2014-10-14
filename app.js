@@ -13,6 +13,7 @@ var handlebars = require( "express-handlebars" );
 var routes = require( "./app/routes" );
 var models = require( "./app/models/models" );
 var controllers = require( "./app/controllers/controllers" );
+var helpers = require( "./app/viewhelpers/viewhelpers" );
 
 var bookshelf = require( "bookshelf" )( knex );
 
@@ -27,10 +28,13 @@ app.set( "models", models );
 controllers.setup( app );
 app.set( "controllers", controllers );
 
+helpers.setup( app );
+
 app.engine( "handlebars", handlebars( {
 	defaultLayout: "main",
 	layoutsDir: "app/views/layouts",
-	partialsDir: "app/views/partials"
+	partialsDir: "app/views/partials",
+    helpers: helpers.getHelpers()
 }) );
 app.set( "views", "app/views" );
 app.set( "view engine", "handlebars" );

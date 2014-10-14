@@ -24,12 +24,16 @@ module.exports = function( grunt ) {
 				files: ["app.js",
 						"app/*.js",
 						"app/models/*.js",
-                        "app/controllers/*.js"],
+                        "app/controllers/*.js",
+                        "app/viewhelpers/*.js"],
 				tasks: ["lint", "express:development"],
 				options: { spawn: false }
 			},
             public: {
-                files: ["app/public/**/*.css",
+                files: [
+                        "app/views/**/*.html",
+                        "app/views/**/*.handlebars",
+                        "app/public/**/*.css",
                         "app/public/**/*.js"],
                 options: { livereload: true }
             }
@@ -82,7 +86,9 @@ module.exports = function( grunt ) {
                   "app/**/*.js",
                   "test/**/*.js"],
             options: {
-                ignores: ["node_modules/**/*"],
+                ignores: ["node_modules/**/*",
+                          "app/public/bower_components/**/*"
+                         ],
                 jshintrc: true
             }
         },

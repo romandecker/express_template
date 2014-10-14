@@ -2,6 +2,7 @@
 
 var fs = require( "fs" );
 var path = require( "path" );
+require( "colors" );
 
 require( "string.prototype.endswith" );
 
@@ -12,6 +13,7 @@ module.exports.setup = function( app ) {
 		return file.endsWith(".js") && file !== path.basename( __filename );
 	} ).forEach( function( file ) {
 
+        console.log( "Setting up controller", file.green );
 		var controller = require( "./" + file );
 		var name = file.substring( 0, file.length - path.extname(file).length );
 
