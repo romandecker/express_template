@@ -1,28 +1,19 @@
 "use strict";
 
+var DefaultController = require( "./DefaultController" );
+
 module.exports.setup = function( app ) {
 
     var models = app.get( "models" );
     var User = models.User;
 
-    return {
-        index: function( req, res ) {
+    var ctrl = {};
+    ctrl.index = DefaultController.index.bind( null, User );
+    ctrl.get = DefaultController.get.bind( null, User );
+    ctrl.create = DefaultController.create.bind( null, User );
+    ctrl.update = DefaultController.update.bind( null, User );
+    ctrl.destroy = DefaultController.destroy.bind( null, User );
 
-            User.fetchAll().then( function( users ) {
-                res.render( "users/index", {
-                    layouts: 'layouts/base'
-                } );
-            } ).catch( function(error) {
-                res.status( 500 ).json( error );
-            } );
-        },
-        deleteAll: function( req, res ) {
-            User.query().del().then( function() {
-                res.json( "Users deleted!" );
-            } ).catch( function( error ) {
-                res.status( 500 ).json( error );
-            } );
-        }
-    };
+    return ctrl;
 };
 

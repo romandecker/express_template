@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+    <link rel="stylesheet"
+          href="public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <% if( appinfo.environment.development ) { %>
+        <script
+            type="text/javascript" 
+            src="//localhost:35729/livereload.js">
+        </script>
+    <% } %>	
+
+    <script
+        type="text/javascript"
+        src="public/bower_components/angular/angular.min.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="public/bower_components/angular-route/angular-route.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="public/bower_components/angular-resource/angular-resource.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="public/app.js">
+    </script>
+    <script
+        type="text/javascript"
+        src="public/routes.js">
+    </script>
+
+    <!-- angular services -->
+    <% ngServices.forEach( function( ngService ) { %>
+        <script
+            type="text/javascript"
+            src="public/services/<%= ngService %>"></script>
+    <% } ); %>
+
+    <!-- angular controllers -->
+    <% ngControllers.forEach( function( ngController ) { %>
+        <script
+            type="text/javascript"
+            src="public/controllers/<%= ngController %>"></script>
+    <% } ); %>
+
+</head>
+<body ng-app="express_template">
+    <div ng-view></div>
+</body>
+</html>

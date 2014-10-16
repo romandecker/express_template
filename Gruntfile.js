@@ -24,15 +24,14 @@ module.exports = function( grunt ) {
 				files: ["app.js",
 						"app/*.js",
 						"app/models/*.js",
-                        "app/controllers/*.js",
-                        "app/viewhelpers/*.js"],
+                        "app/controllers/*.js"],
 				tasks: ["lint", "express:development"],
 				options: { spawn: false }
 			},
             public: {
-                files: [
-                        "app/views/**/*.html",
-                        "app/views/**/*.handlebars",
+                files: ["app/views/**/*.html",
+                        "app/views/**/*.ejs",
+                        "app/public/**/*.html",
                         "app/public/**/*.css",
                         "app/public/**/*.js"],
                 options: { livereload: true }
